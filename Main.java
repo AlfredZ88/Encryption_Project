@@ -28,28 +28,28 @@ class Main {
     sub2[6] = '\u16D4';  // RUNIC LETTER DOTTED-P
 	sub2[7] = '\u16E4';  // RUNIC LETTER CEALC
     
-	// // Encoding the plaintext:
+	// Encoding the plaintext:
     String file = Input.readFile("Original.txt");
     // Encode level 1 (substitution)
     String encodedMsg1 = subEncryption(file,sub,sub2);
     Input.writeFile("Encode1.txt", encodedMsg1);
-    // // Encode level 2 (+3 cipher with no wrap)
+    // Encode level 2 (+3 cipher with no wrap)
     String encodedMsg2 = encode(encodedMsg1);
     Input.writeFile("Encode2.txt", encodedMsg2);
-    // // Encode level 3 (string manipulation)
+    // Encode level 3 (string manipulation)
     String encodedMsg3 = reversE(encodedMsg2);
     Input.writeFile("Encode3.txt", encodedMsg3);
 
     
-    // // Decoding the ciphertext: 
+    // Decoding the ciphertext: 
     String file2 = Input.readFile("Encode3.txt");
-    // Decode level 1  (string manipulation)
+    // Decode level 1  (unstring manipulation)
     String decodedMsg1 = reversE(file2);
     Input.writeFile("Decode1.txt", decodedMsg1);
-    // Decode level 2 (cipher with no wrap)
+    // Decode level 2 (decipher with no wrap)
     String decodedMsg2 = decode(decodedMsg1);
     Input.writeFile("Decode2.txt", decodedMsg2);
-    // Decode level 3 (substitution)
+    // Decode level 3 (unsubstitution)
     String decodedMsg3 = subEncryption(decodedMsg2, sub2, sub);
     Input.writeFile("Decode3.txt", decodedMsg3);
     
