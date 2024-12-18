@@ -33,7 +33,7 @@ class Main {
     // Encode level 1 (substitution)
     String encodedMsg1 = subEncryption(file,sub,sub2);
     Input.writeFile("Encode1.txt", encodedMsg1);
-    // // Encode level 2 (cipher with no wrap)
+    // // Encode level 2 (+3 cipher with no wrap)
     String encodedMsg2 = encode(encodedMsg1);
     Input.writeFile("Encode2.txt", encodedMsg2);
     // // Encode level 3 (string manipulation)
